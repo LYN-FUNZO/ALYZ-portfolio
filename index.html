@@ -1,0 +1,947 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALYZ | Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: white;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: red;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        .menu {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+
+        /* ================= HOME ================= */
+
+        section {
+            min-height: 100vh;
+            padding: 100px 8%;
+        }
+
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .home-text {
+            max-width: 600px;
+        }
+
+        .home-text h3 {
+            font-size: 22px;
+        }
+
+        .home-text h3 span {
+            color: red;
+        }
+
+        .home-text h1 {
+            font-size: 65px;
+            margin: 10px 0;
+        }
+
+        .home-text h2 {
+            font-size: 28px;
+            color: #ddd;
+        }
+
+        .home-text h2 span {
+            color: red;
+        }
+
+        .home-text p {
+            color: #aaa;
+            line-height: 1.7;
+            margin: 20px 0;
+        }
+
+
+        /* ================= PROFILE IMAGE ================= */
+
+        .profile {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 8px solid red;
+            box-shadow: 0 0 50px red;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .btn {
+            display: inline-block;
+            padding: 13px 35px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: red;
+        }
+
+
+        /* ================= GENERAL ================= */
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .title span {
+            color: red;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        #about {
+            background: #080808;
+        }
+
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 30px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 12px;
+            background: #222;
+            border-radius: 20px;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: red;
+            border-radius: 20px;
+        }
+
+        .html {
+            width: 90%;
+        }
+
+        .python {
+            width: 80%;
+        }
+
+        .design {
+            width: 85%;
+        }
+
+        .problem {
+            width: 80%;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        #services {
+            background: #080808;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #111;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid #222;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: red;
+            box-shadow: 0 0 25px rgba(255,0,0,0.3);
+        }
+
+        .service-card .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h2 {
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-card button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .service-card button:hover {
+            background: white;
+            color: red;
+        }
+
+
+        /* ================= SERVICE DETAILS ================= */
+
+        .details {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: #151515;
+            border-left: 4px solid red;
+        }
+
+        .details.active {
+            display: block;
+        }
+
+        .details h2 {
+            color: red;
+            margin-bottom: 15px;
+        }
+
+        .details p {
+            color: #bbb;
+            line-height: 1.7;
+        }
+
+        .details ul {
+            margin: 15px 0 0 25px;
+            color: #bbb;
+            line-height: 2;
+        }
+
+
+        /* ================= EDUCATION ================= */
+
+        .education {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .education-box {
+            background: #111;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid red;
+        }
+
+        .education-box h2 {
+            color: red;
+        }
+
+        .education-box p {
+            color: #aaa;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        #contact {
+            background: #080808;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: #aaa;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #000;
+            color: #777;
+        }
+
+        footer span {
+            color: red;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 18px 6%;
+            }
+
+            nav {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #050505;
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0;
+                padding: 15px;
+                border-bottom: 1px solid #222;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            #home {
+                flex-direction: column-reverse;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .profile {
+                width: 260px;
+                height: 260px;
+            }
+
+            .home-text h1 {
+                font-size: 48px;
+            }
+
+            .home-text h2 {
+                font-size: 22px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ALY<span>Z</span>
+    </div>
+
+    <nav id="navbar">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <div class="menu" onclick="menu()">
+        ☰
+    </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="home-text">
+
+        <h3>
+            Hey I'm <span>ALYZ</span>
+        </h3>
+
+        <h1>
+            I'm a
+        </h1>
+
+        <h2>
+            <span>Web Designer</span> & Programmer
+        </h2>
+
+        <p>
+            Welcome to my personal portfolio.
+            I am passionate about technology,
+            programming, web design, and creative
+            digital projects.
+        </p>
+
+        <a href="#contact" class="btn">
+            Contact Me
+        </a>
+
+    </div>
+
+
+    <div class="profile">
+
+        <img src="profile.jpg" alt="Profile Picture">
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <h1 class="title">
+        About <span>Me</span>
+    </h1>
+
+    <div class="about-box">
+
+        <p>
+            Hello! I'm ALYZ, a student interested in
+            Information Technology, programming,
+            and website development.
+        </p>
+
+        <br>
+
+        <p>
+            I enjoy learning how websites and computer
+            programs work. I also like creating simple,
+            creative, and user-friendly digital projects.
+        </p>
+
+        <br>
+
+        <p>
+            My goal is to continue improving my skills
+            and become a successful IT professional
+            in the future.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <h1 class="title">
+        My <span>Skills</span>
+    </h1>
+
+    <div class="skills-container">
+
+        <div class="skill">
+
+            <div class="skill-name">
+                <span>HTML</span>
+                <span>90%</span>
+            </div>
+
+            <div class="bar">
+                <span class="html"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-name">
+                <span>Python</span>
+                <span>80%</span>
+            </div>
+
+            <div class="bar">
+                <span class="python"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-name">
+                <span>Web Design</span>
+                <span>85%</span>
+            </div>
+
+            <div class="bar">
+                <span class="design"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-name">
+                <span>Problem Solving</span>
+                <span>80%</span>
+            </div>
+
+            <div class="bar">
+                <span class="problem"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+    <h1 class="title">
+        My <span>Services</span>
+    </h1>
+
+
+    <div class="services-container">
+
+
+        <!-- WEB DESIGN -->
+
+        <div class="service-card">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h2>
+                Web Design
+            </h2>
+
+            <p>
+                Creating simple, attractive,
+                and user-friendly websites.
+            </p>
+
+            <button onclick="showService('web')">
+                Learn More
+            </button>
+
+        </div>
+
+
+        <!-- PROGRAMMING -->
+
+        <div class="service-card">
+
+            <div class="icon">
+                💻
+            </div>
+
+            <h2>
+                Programming
+            </h2>
+
+            <p>
+                Creating basic programs using
+                programming languages.
+            </p>
+
+            <button onclick="showService('program')">
+                Learn More
+            </button>
+
+        </div>
+
+
+        <!-- CREATIVE DESIGN -->
+
+        <div class="service-card">
+
+            <div class="icon">
+                🎨
+            </div>
+
+            <h2>
+                Creative Design
+            </h2>
+
+            <p>
+                Creating creative layouts and
+                digital project designs.
+            </p>
+
+            <button onclick="showService('creative')">
+                Learn More
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WEB DESIGN DETAILS -->
+
+    <div id="web" class="details">
+
+        <h2>
+            🌐 Web Design
+        </h2>
+
+        <p>
+            I can create simple and attractive
+            websites using HTML and basic web
+            development techniques.
+        </p>
+
+        <ul>
+
+            <li>Portfolio Websites</li>
+            <li>Personal Websites</li>
+            <li>HTML Pages</li>
+            <li>Navigation Menus</li>
+            <li>Forms and Buttons</li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- PROGRAMMING DETAILS -->
+
+    <div id="program" class="details">
+
+        <h2>
+            💻 Programming
+        </h2>
+
+        <p>
+            I can create basic programs and
+            applications while practicing
+            programming concepts.
+        </p>
+
+        <ul>
+
+            <li>Python Programs</li>
+            <li>Calculator</li>
+            <li>Quiz Game</li>
+            <li>Login System</li>
+            <li>Student Information System</li>
+            <li>Loops and Conditions</li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- CREATIVE DESIGN DETAILS -->
+
+    <div id="creative" class="details">
+
+        <h2>
+            🎨 Creative Design
+        </h2>
+
+        <p>
+            I enjoy creating creative and
+            organized designs for websites
+            and digital projects.
+        </p>
+
+        <ul>
+
+            <li>Portfolio Layouts</li>
+            <li>Website Interfaces</li>
+            <li>Creative Page Designs</li>
+            <li>Digital Project Layouts</li>
+            <li>User-Friendly Designs</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education">
+
+    <h1 class="title">
+        My <span>Education</span>
+    </h1>
+
+
+    <div class="education">
+
+        <div class="education-box">
+
+            <h2>
+                🎓 Senior High School
+            </h2>
+
+            <p>
+                Senior High School Student
+            </p>
+
+            <p>
+                Developing knowledge and skills
+                in technology, ICT, programming,
+                and other subjects.
+            </p>
+
+        </div>
+
+
+        <div class="education-box">
+
+            <h2>
+                💻 Information Technology
+            </h2>
+
+            <p>
+                Future IT Professional
+            </p>
+
+            <p>
+                Continuing to learn programming,
+                web development, and computer
+                technologies.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h1 class="title">
+        Contact <span>Me</span>
+    </h1>
+
+
+    <div class="contact-box">
+
+        <p>
+            📧 Email:
+            alyz@example.com
+        </p>
+
+        <p>
+            📱 Phone:
+            09XX-XXX-XXXX
+        </p>
+
+        <p>
+            🌐 Location:
+            Philippines
+        </p>
+
+        <a href="mailto:alyz@example.com"
+           class="btn">
+
+            Send Message
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 <span>ALYZ</span> |
+    My Personal Portfolio
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* MOBILE MENU */
+
+    function menu() {
+
+        document
+        .getElementById("navbar")
+        .classList.toggle("active");
+
+    }
+
+
+    /* SERVICE BUTTONS */
+
+    function showService(service) {
+
+        let details =
+            document.querySelectorAll(".details");
+
+        details.forEach(function(item) {
+
+            item.classList.remove("active");
+
+        });
+
+
+        document
+        .getElementById(service)
+        .classList.add("active");
+
+
+        document
+        .getElementById(service)
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
